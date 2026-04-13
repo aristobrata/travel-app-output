@@ -37,7 +37,7 @@ input:focus{outline:none;border-color:#F59E0B;box-shadow:0 0 0 3px rgba(245,158,
 <div class="card">
   <div class="brand">
     <div class="brand-icon">🚌</div>
-    <div class="brand-name">TravelKu</div>
+    <div class="brand-name">Falles Travel</div>
     <div class="brand-sub">Tiket Bus & Travel Online</div>
   </div>
 

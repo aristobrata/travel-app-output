@@ -123,7 +123,7 @@ nav{background:#0F1B2D;padding:0 24px;height:56px;display:flex;align-items:cente
 </div>
 
 <footer style="background:#0F1B2D;color:rgba(255,255,255,.5);text-align:center;padding:20px;font-size:.8rem">
-  © <?= date('Y') ?> TravelKu — Selamat Perjalanan!
+  © <?= date('Y') ?> Falles Travel — Selamat Perjalanan!
 </footer>
 </body>
 </html>

@@ -149,7 +149,7 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none}
 <!-- FEATURES -->
 <section class="features">
   <div class="container">
-    <h2>Kenapa Pilih TravelKu?</h2>
+    <h2>Kenapa Pilih Falles Travel?</h2>
     <p class="sub">Ribuan penumpang telah mempercayai perjalanan mereka bersama kami</p>
     <div class="features-grid">
       <div class="feature-card">
@@ -214,7 +214,7 @@ $popularRoutes = Route::all();
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">🚌 TravelKu</div>
+  <div class="footer-brand">🚌 Falles Travel</div>
   <p>Solusi perjalanan bus & travel terpercaya di Sumatera Barat</p>
   <p style="margin-top:8px">
     <a href="<?= $base ?>/login">Login</a> &nbsp;·&nbsp;
@@ -223,7 +223,7 @@ $popularRoutes = Route::all();
       &nbsp;·&nbsp; <a href="<?= $base ?>/admin">Admin Panel</a>
     <?php endif; ?>
   </p>
-  <p style="margin-top:12px;font-size:.75rem">© <?= date('Y') ?> TravelKu. All rights reserved.</p>
+  <p style="margin-top:12px;font-size:.75rem">© <?= date('Y') ?> Falles Travel. All rights reserved.</p>
 </footer>
 
 </body>

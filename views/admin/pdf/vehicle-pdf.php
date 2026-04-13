@@ -22,7 +22,7 @@ tr:nth-child(even) td{background:#F8FAFC}
   <a href="javascript:history.back()" style="margin-left:10px;color:#64748B">← Kembali</a>
 </div>
 <div class="header">
-  <h1>🚌 TravelKu — Laporan Kendaraan</h1>
+  <h1>🚌 Falles Travel — Laporan Kendaraan</h1>
   <p>Periode: <?= htmlspecialchars($from) ?> s/d <?= htmlspecialchars($to) ?> &nbsp;|&nbsp; Dicetak: <?= date('d/m/Y H:i') ?></p>
 </div>
 <table>
@@ -49,6 +49,6 @@ tr:nth-child(even) td{background:#F8FAFC}
     <?php endif; ?>
   </tbody>
 </table>
-<div class="footer">Dokumen digenerate otomatis oleh TravelKu pada <?= date('d/m/Y H:i:s') ?></div>
+<div class="footer">Dokumen digenerate otomatis oleh Falles Travel pada <?= date('d/m/Y H:i:s') ?></div>
 </body>
 </html>

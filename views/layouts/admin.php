@@ -276,7 +276,7 @@ table tbody tr:last-child td{border-bottom:none}
   <div class="sidebar-brand">
     <div class="brand-icon"><i class="fa-solid fa-route"></i></div>
     <div>
-      <span class="sidebar-brand .brand-text" style="font-family:var(--font-serif);font-size:1.2rem;color:#fff">TravelKu</span>
+      <span class="sidebar-brand .brand-text" style="font-family:var(--font-serif);font-size:1.2rem;color:#fff">Falles Travel</span>
       <span class="brand-sub">Admin Panel</span>
     </div>
   </div>
@@ -329,7 +329,7 @@ table tbody tr:last-child td{border-bottom:none}
       </ul>
     </div>
   </nav>
-  <div class="sidebar-footer">© <?= date('Y') ?> TravelKu</div>
+  <div class="sidebar-footer">© <?= date('Y') ?> Falles Travel</div>
 </aside>
 
 <!-- MAIN -->

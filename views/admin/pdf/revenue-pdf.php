@@ -32,7 +32,7 @@ tr:nth-child(even) td{background:#F8FAFC}
 </div>
 
 <div class="header">
-  <h1>🚌 TravelKu</h1>
+  <h1>🚌 Falles Travel</h1>
   <p>Laporan Pendapatan</p>
 </div>
 
