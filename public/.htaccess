@@ -1,0 +1,16 @@
+Options -Indexes
+RewriteEngine On
+
+# Ganti sesuai nama folder di htdocs Anda
+# Contoh: jika folder = htdocs/travel-app-final/ maka:
+RewriteBase /travel-app-final/public/
+
+# Blokir akses file sensitif
+RewriteRule ^(\.env|\.htaccess) - [F,L]
+
+# Izinkan file & folder yang benar-benar ada (CSS, JS, gambar, dll)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Semua request lain → index.php
+RewriteRule ^ index.php [QSA,L]

@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # RewriteBase otomatis mengikuti subfolder tempat app diletakkan
+    # Ganti NAMA_FOLDER sesuai nama folder di htdocs Anda
+    # Contoh: jika folder = htdocs/travel-app-final/ maka:
+    RewriteBase /travel-app-output/
+
+    # Blokir akses ke folder sensitif
+    RewriteRule ^(\.env|app/|config/|database/|views/) - [F,L]
+
+    # Forward akses assets ke folder public/assets/
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+    # Izinkan akses langsung ke public/assets
+    RewriteRule ^public/assets/ - [L]
+
+    # Izinkan file/folder yang benar-benar ada
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Semua request lainnya ke index.php di root
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

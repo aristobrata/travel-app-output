@@ -1,0 +1,8 @@
+Options -Indexes
+# Hanya izinkan akses file gambar dan PDF
+<FilesMatch "\.(jpg|jpeg|png|webp|pdf)$">
+    Allow from all
+</FilesMatch>
+<FilesMatch "\.php$">
+    Deny from all
+</FilesMatch>
