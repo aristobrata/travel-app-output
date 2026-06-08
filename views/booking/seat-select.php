@@ -118,49 +118,48 @@ nav a.brand{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;tex
         </div>
 
         <div class="bus-shell">
-          <div class="bus-driver">🚗 Pengemudi</div>
           <?php
           $capacity = (int)$schedule['capacity'];
           $takenArr = $takenNos ?? [];
-          // Generate rows: 2+2 layout, 4 per row
-          $rows = ceil($capacity / 4);
-          $seatNum = 1;
-          for ($row = 0; $row < $rows; $row++):
-            $rowSeats = [];
-            for ($col = 0; $col < 4; $col++) {
-              if ($seatNum <= $capacity) {
-                $rowSeats[] = $seatNum++;
-              } else {
-                $rowSeats[] = null;
-              }
-            }
+
+          // Helper: render one seat element
+          function renderSeat($n, $takenArr, $scheduleId, $price) {
+            if ($n === null) { echo '<div style="width:38px;height:38px"></div>'; return; }
+            $taken = in_array($n, $takenArr);
+            $cls   = $taken ? 'taken' : '';
+            $click = $taken ? '' : "toggleSeat($n, $scheduleId, $price)";
+            echo "<div class=\"seat $cls\" id=\"seat-$n\" data-seat=\"$n\" onclick=\"$click\">$n</div>";
+          }
+          ?>
+
+          <!-- BARIS PENGEMUDI: sejajar dengan baris penumpang (struktur kosong+kursi1 | gap | kosong+pengemudi) -->
+          <div class="seat-row" style="margin-bottom:10px;padding-bottom:10px;border-bottom:2px dashed #E2E8F0">
+            <div style="width:38px;height:38px"></div>
+            <?php renderSeat(1, $takenArr, $schedule['id'], $schedule['price']); ?>
+            <div class="seat-gap"></div>
+            <div style="width:38px;height:38px"></div>
+            <div class="seat driver" title="Pengemudi">
+              <i class="fa-solid fa-steering-wheel" style="font-size:.95rem"></i>
+            </div>
+          </div>
+
+          <!-- BARIS PENUMPANG: kursi 2 dst, layout 2+2 -->
+          <?php
+          $seatNum = 2;
+          while ($seatNum <= $capacity):
+            $r = [$seatNum <= $capacity ? $seatNum++ : null,
+                  $seatNum <= $capacity ? $seatNum++ : null,
+                  $seatNum <= $capacity ? $seatNum++ : null,
+                  $seatNum <= $capacity ? $seatNum++ : null];
           ?>
           <div class="seat-row">
-            <?php foreach ([0, 1] as $i):
-              $n = $rowSeats[$i];
-              if ($n): $taken = in_array($n, $takenArr); ?>
-                <div class="seat <?= $taken ? 'taken' : '' ?>"
-                  id="seat-<?= $n ?>"
-                  data-seat="<?= $n ?>"
-                  onclick="<?= $taken ? '' : 'toggleSeat(' . $n . ', ' . $schedule['id'] . ', ' . $schedule['price'] . ')' ?>">
-                  <?= $n ?>
-                </div>
-              <?php else: ?><div style="width:38px"></div><?php endif; ?>
-            <?php endforeach; ?>
+            <?php renderSeat($r[0], $takenArr, $schedule['id'], $schedule['price']); ?>
+            <?php renderSeat($r[1], $takenArr, $schedule['id'], $schedule['price']); ?>
             <div class="seat-gap"></div>
-            <?php foreach ([2, 3] as $i):
-              $n = $rowSeats[$i];
-              if ($n): $taken = in_array($n, $takenArr); ?>
-                <div class="seat <?= $taken ? 'taken' : '' ?>"
-                  id="seat-<?= $n ?>"
-                  data-seat="<?= $n ?>"
-                  onclick="<?= $taken ? '' : 'toggleSeat(' . $n . ', ' . $schedule['id'] . ', ' . $schedule['price'] . ')' ?>">
-                  <?= $n ?>
-                </div>
-              <?php else: ?><div style="width:38px"></div><?php endif; ?>
-            <?php endforeach; ?>
+            <?php renderSeat($r[2], $takenArr, $schedule['id'], $schedule['price']); ?>
+            <?php renderSeat($r[3], $takenArr, $schedule['id'], $schedule['price']); ?>
           </div>
-          <?php endfor; ?>
+          <?php endwhile; ?>
         </div>
       </div>
     </div>
